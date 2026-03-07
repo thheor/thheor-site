@@ -11,6 +11,7 @@ import nodejs from "../assets/nodejs.svg";
 import postgres from "../assets/postgres.svg";
 import mysql from "../assets/mysql.svg";
 import python from "../assets/python.svg";
+import pandas from "../assets/pandas.svg";
 import git from "../assets/git.svg";
 ---
 
@@ -18,8 +19,8 @@ import git from "../assets/git.svg";
   id="container"
   class="flex justify-center bg-ctp-base w-full h-screen font-jetbrains-mono text-ctp-text"
 >
-  <div class="w-[65%] pt-20">
-    <h1 class="text-5xl font-semibold tracking-wide">
+  <div class="w-[90%] md:w-[65%] pt-20">
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-wide">
       Hey! I'm <span class="text-ctp-blue">Lukman Prasetyo</span>
     </h1>
     <p class="mt-2 opacity-80">
@@ -61,7 +62,7 @@ import git from "../assets/git.svg";
       >
     </div>
     <div id="work" class="mt-20">
-      <h1 class="text-5xl font-bold mb-5">What I work with</h1>
+      <h1 class="text-3xl md:text-5xl font-bold mb-5">What I work with</h1>
       <div
         class="group mt-2 inline-flex flex-nowrap w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
       >
@@ -150,6 +151,10 @@ import git from "../assets/git.svg";
             Python
           </li>
           <li class="flex gap-3 justify-center items-center text-xl font-bold">
+            <img src={pandas.src} alt="css" class="w-12" />
+            Pandas
+          </li>
+          <li class="flex gap-3 justify-center items-center text-xl font-bold">
             <img src={nodejs.src} alt="tailwind" class="w-12" />
             NodeJS
           </li>
@@ -179,6 +184,10 @@ import git from "../assets/git.svg";
             Python
           </li>
           <li class="flex gap-3 justify-center items-center text-xl font-bold">
+            <img src={pandas.src} alt="css" class="w-12" />
+            Pandas
+          </li>
+          <li class="flex gap-3 justify-center items-center text-xl font-bold">
             <img src={nodejs.src} alt="tailwind" class="w-12" />
             NodeJS
           </li>
@@ -186,7 +195,7 @@ import git from "../assets/git.svg";
       </div>
     </div>
     <div id="projects" class="mt-20">
-      <h1 class="text-5xl font-bold mb-5">Projects</h1>
+      <h1 class="text-3xl md:text-5xl font-bold mb-5">Projects</h1>
       <FeaturedProject />
     </div>
   </div>
