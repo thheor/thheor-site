@@ -1,0 +1,42 @@
+---
+const url = new URL(Astro.request.url).pathname;
+const path = url;
+console.log(path);
+---
+
+<div
+  class="w-full sticky top-0 backdrop-blur-sm transparent antialiased z-50 border-none"
+>
+  <div class="flex justify-between mx-auto h-15 items-center w-[75%]">
+    <p>
+      <a
+        class="font-jetbrains-mono text-ctp-blue tracking-wide text-lg animate-pulse hover:animate-none"
+        href="/"
+        title="Welcome page">~</a
+      >
+      <span class="font-jetbrains-mono text-ctp-text tracking-wide">{path}</span
+      >
+    </p>
+    <nav
+      class="flex justify-center items-center gap-10 rounded-lg
+    font-jetbrains-mono text-ctp-text tracking-wide"
+    >
+      <a href="/about" class="hover:text-ctp-blue transition duration-150"
+        >About</a
+      >
+      <a href="/post" class="hover:text-ctp-blue transition duration-150"
+        >Posts</a
+      >
+      <a href="/project" class="hover:text-ctp-blue transition duration-150"
+        >Projects</a
+      >
+      <a href="/contact" class="hover:text-ctp-blue transition duration-150"
+        >Contact</a
+      >
+    </nav>
+  </div>
+</div>
+<script>
+  const current = window.location.pathname;
+  console.log(current);
+</script>
