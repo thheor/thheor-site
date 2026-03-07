@@ -1,4 +1,5 @@
 ---
+import FeaturedProject from "./FeaturedProject.astro";
 import astro from "../assets/astro.svg";
 import react from "../assets/react.svg";
 import js from "../assets/js.svg";
@@ -21,7 +22,12 @@ import git from "../assets/git.svg";
     <h1 class="text-5xl font-semibold tracking-wide">
       Hey! I'm <span class="text-ctp-blue">Lukman Prasetyo</span>
     </h1>
-    <p class="mt-5 text-xl">
+    <p class="mt-2 opacity-80">
+      <i class="fa-solid fa-map-pin"></i><span class="text-xl">
+        Yogyakarta, Indonesia</span
+      >
+    </p>
+    <p class="mt-2 text-xl">
       I'm a computer science student, Web Developer, and Machine Learning
       enthusiast.
     </p>
@@ -124,6 +130,10 @@ import git from "../assets/git.svg";
           class="flex justify-center items-center [&_li]:mx-3 [&_img]:max-w-none group-hover:[animation-play-state:paused] animate-infinite-scroll"
         >
           <li class="flex gap-3 justify-center items-center text-xl font-bold">
+            <img src={astro.src} alt="jssss" class="w-12" />
+            Astro
+          </li>
+          <li class="flex gap-3 justify-center items-center text-xl font-bold">
             <img src={git.src} alt="jssss" class="w-12" />
             Git
           </li>
@@ -149,6 +159,10 @@ import git from "../assets/git.svg";
           aria-hidden="true"
         >
           <li class="flex gap-3 justify-center items-center text-xl font-bold">
+            <img src={astro.src} alt="jssss" class="w-12" />
+            Astro
+          </li>
+          <li class="flex gap-3 justify-center items-center text-xl font-bold">
             <img src={git.src} alt="jssss" class="w-12" />
             Git
           </li>
@@ -173,6 +187,7 @@ import git from "../assets/git.svg";
     </div>
     <div id="projects" class="mt-20">
       <h1 class="text-5xl font-bold mb-5">Projects</h1>
+      <FeaturedProject />
     </div>
   </div>
 </div>
