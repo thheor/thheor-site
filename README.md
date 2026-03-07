@@ -4,4 +4,4 @@ Personal digital playground designed to showcase my projects, experiments, and j
 
 ---
 
-Thank you for visiting -- Please leave a star if you like!
+Thank you for visiting -- Please leave a :star: if you like!
