@@ -1,13 +1,14 @@
 ---
 const url = new URL(Astro.request.url).pathname;
 const path = url;
-console.log(path);
 ---
 
 <div
-  class="w-full sticky top-0 backdrop-blur-sm transparent antialiased z-50 border-none"
+  class="w-full flex justify-center relative sticky top-0 backdrop-blur-sm transparent antialiased z-50 border-none"
 >
-  <div class="flex justify-between mx-auto h-15 items-center w-[75%]">
+  <div
+    class="flex justify-between max-sm:ml-10 h-15 items-center w-[95%] md:w-[75%]"
+  >
     <p>
       <a
         class="font-jetbrains-mono text-ctp-blue tracking-wide text-lg animate-pulse hover:animate-none"
@@ -17,26 +18,79 @@ console.log(path);
       <span class="font-jetbrains-mono text-ctp-text tracking-wide">{path}</span
       >
     </p>
-    <nav
-      class="flex justify-center items-center gap-10 rounded-lg
-    font-jetbrains-mono text-ctp-text tracking-wide"
+    <button
+      id="toggle-btn"
+      class="flex justify-center items-center md:hidden scale-120 transition duration-300 ease-in-out hover:scale-130 cursor-pointer z-100"
     >
-      <a href="/about" class="hover:text-ctp-blue transition duration-150"
-        >About</a
+      <span id="bars" class="">
+        <i class="fa-solid fa-bars"></i>
+      </span>
+    </button>
+    <nav
+      id="navbar"
+      class="transition duration-300 max-md:hidden max-md:w-60 max-md:min-h-screen max-md:absolute max-md:right-0 max-md:top-0 max-md:bg-ctp-crust"
+    >
+      <ul
+        id="nav-item"
+        class="flex max-md:w-[80%] max-md:flex-col max-md:mt-5 max-md:ml-5 md:justify-center md:items-center gap-4 md:gap-10 rounded-lg
+    font-jetbrains-mono text-ctp-text tracking-wide"
       >
-      <a href="/post" class="hover:text-ctp-blue transition duration-150"
-        >Posts</a
-      >
-      <a href="/project" class="hover:text-ctp-blue transition duration-150"
-        >Projects</a
-      >
-      <a href="/contact" class="hover:text-ctp-blue transition duration-150"
-        >Contact</a
-      >
+        <div class="flex justify-between">
+          <p
+            id="nav-text"
+            class="text-ctp-blue text-xl font-jetbrains-mono hidden z-100"
+          >
+            Navigation
+          </p>
+          <button
+            id="x-mark"
+            class="flex justify-center items-center hidden scale-120 transition duration-300 ease-in-out hover:scale-130 cursor-pointer z-100"
+          >
+            <span>
+              <i class="fa-solid fa-xmark"></i>
+            </span>
+          </button>
+        </div>
+        <li>
+          <a href="/about" class="hover:text-ctp-blue transition duration-150"
+            >About</a
+          >
+        </li>
+        <li>
+          <a href="/post" class="hover:text-ctp-blue transition duration-150"
+            >Posts</a
+          >
+        </li>
+        <li>
+          <a href="/project" class="hover:text-ctp-blue transition duration-150"
+            >Projects</a
+          >
+        </li>
+        <li>
+          <a href="/contact" class="hover:text-ctp-blue transition duration-150"
+            >Contact</a
+          >
+        </li>
+      </ul>
     </nav>
   </div>
 </div>
 <script>
-  const current = window.location.pathname;
-  console.log(current);
+  const navbar = document.getElementById("navbar");
+  const button = document.getElementById("toggle-btn");
+  const bars = document.getElementById("bars");
+  const close = document.getElementById("x-mark");
+  const navText = document.getElementById("nav-text");
+
+  const sidebarToggle = () => {
+    navbar?.classList.toggle("max-md:hidden");
+    bars?.classList.toggle("hidden");
+    close?.classList.toggle("hidden");
+    navText?.classList.toggle("hidden");
+
+    console.log("click");
+  };
+
+  button?.addEventListener("click", sidebarToggle);
+  close?.addEventListener("click", sidebarToggle);
 </script>
