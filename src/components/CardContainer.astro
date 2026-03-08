@@ -1,0 +1,50 @@
+---
+import Card from "./Card.astro";
+
+interface Props {
+  title: string;
+  link: string;
+  descCli: string;
+  description: string;
+  tools: string[];
+}
+
+const { link, title, descCli, description, tools } = Astro.props;
+---
+
+<a href={link}>
+  <div
+    id="card-container"
+    class="group w-80 md:w-115 h-auto md:h-90 rounded-xl border border-ctp-lavender/30 transition duration-300 ease-in-out hover:border-ctp-lavender"
+  >
+    <div
+      class="flex justify-center items-center h-40 md:h-50 bg-ctp-lavender rounded-t-xl"
+    >
+      <div class="transition duration-300 ease-in-out group-hover:scale-105">
+      <Card title={title} description={descCli} />
+      </div>
+    </div>
+    <div id="desc" class="mt-3 mx-5">
+      <h1 class="text-xl font-semibold">{title}</h1>
+      <p class="text-base text-ctp-text/80">
+        {description}
+      </p>
+      <ul class="flex flex-wrap gap-2 my-2 md:mt-4">
+        <span class="flex justify-center items-center">
+        <i class="fa-solid fa-tag bg-center text-ctp-text mr-1"></i></span>
+        {tools.map((el: any) => {
+          const color = ["text-ctp-rosewater", "text-ctp-yellow","text-ctp-blue", "text-ctp-teal", "text-ctp-maroon", "text-ctp-lavender", "text-ctp-pink"];
+          let index = Math.floor(Math.random() * color.length);
+          const textColor = color[index];
+          return(
+          <li class=`text-xs md:text-sm ${textColor} bg-ctp-surface0 p-1 rounded`>
+              {el}
+            </li>)
+        })
+        }
+      </ul>
+    </div>
+  </div>
+</a>
+<script>
+</script>
