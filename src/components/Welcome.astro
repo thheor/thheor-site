@@ -17,7 +17,7 @@ import git from "../assets/git.svg";
 
 <div
   id="container"
-  class="flex justify-center w-full h-screen font-jetbrains-mono text-ctp-text"
+  class="flex justify-center w-full min-h-screen font-jetbrains-mono text-ctp-text"
 >
   <div class="w-[85%] md:w-[65%] pt-20">
     <h1 class="text-3xl md:text-5xl font-semibold tracking-wide">
@@ -51,8 +51,8 @@ import git from "../assets/git.svg";
         href=""
         class="transition duration-300 ease-in-out hover:text-ctp-blue"
       >
-        <i class="fa-solid fa-envelope"></i>
-        Email
+        <i class="fa-regular fa-file"></i>
+        Resume
       </a> |
       <a
         href=""
@@ -62,7 +62,10 @@ import git from "../assets/git.svg";
       >
     </div>
     <div id="work" class="mt-20">
-      <h1 class="text-2xl md:text-4xl font-bold mb-5">What I work with</h1>
+      <h1 class="text-2xl md:text-4xl font-inter font-semibold mb-5">
+        <i class="fa-solid fa-code scale-85 text-ctp-blue"></i>
+        My Skills
+      </h1>
       <div
         class="group mt-2 inline-flex flex-nowrap w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
       >
@@ -195,11 +198,17 @@ import git from "../assets/git.svg";
       </div>
     </div>
     <div id="projects" class="mt-20">
-      <h1 class="text-2xl md:text-4xl font-bold mb-5">
+      <h1 class="text-2xl md:text-4xl font-inter font-semibold mb-5">
         <i class="fa-regular fa-star scale-85 text-ctp-blue mr-1"></i>Featured
         Projects
       </h1>
       <FeaturedProject />
+    </div>
+    <div id="posts" class="mt-20">
+      <h1 class="text-2xl md:text-4xl font-inter font-semibold mb-5">
+        <i class="fa-regular fa-newspaper scale-85 text-ctp-blue mr-1"
+        ></i>Latest Blog Posts
+      </h1>
     </div>
   </div>
 </div>
