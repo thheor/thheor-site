@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/navbar.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 ---
 
@@ -20,11 +21,12 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Theo's Portfolio</title>
   </head>
-  <body class="bg-ctp-base text-ctp-text">
+  <body class="bg-ctp-base text-ctp-text overflow-x-hidden">
     <Navbar />
     <main>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
 
