@@ -7,7 +7,7 @@ const path = url;
   class="w-full sticky top-0 backdrop-blur-sm transparent antialiased z-50 border-none"
 >
   <div
-    class="flex justify-between mx-auto h-15 items-center w-[82%] md:w-[75%]"
+    class="flex justify-between overlay-x-hidden mx-auto h-15 items-center w-[82%] md:w-[75%]"
   >
     <p>
       <a
@@ -21,20 +21,15 @@ const path = url;
     </p>
     <button
       id="toggle-btn"
-      class="flex justify-center items-center md:hidden scale-120 transition duration-300 ease-in-out hover:scale-130 cursor-pointer z-100"
+      class="group flex justify-center items-center md:hidden scale-120 transition duration-300 ease-in-out hover:scale-130 cursor-pointer z-100"
     >
       <span id="bars" class="">
         <i class="fa-solid fa-bars"></i>
       </span>
     </button>
-    <!-- <div -->
-    <!--   id="overlay" -->
-    <!--   class="fixed h-screen w-screen bg-ctp-crust/50 z-10 backdrop-blur-sm invisible opacity-0 md:hidden" -->
-    <!-- > -->
-    <!-- </div> -->
     <nav
       id="navbar"
-      class="transition-transform duration-300 max-md:translate-x-full max-md:w-60 max-md:min-h-screen max-md:absolute max-md:right-0 max-md:top-0 max-md:bg-ctp-crust z-100"
+      class="max-md:hidden max-md:fixed max-md:right-0 max-md:top-0 transition-transform duration-300 max-md:w-60 max-md:min-h-screen max-md:bg-ctp-crust z-100"
     >
       <ul
         id="nav-item"
@@ -91,7 +86,7 @@ const path = url;
   // const overlay = document.getElementById("overlay");
 
   const sidebarToggle = () => {
-    navbar?.classList.toggle("max-md:translate-x-full");
+    navbar?.classList.toggle("max-md:hidden");
     bars?.classList.toggle("hidden");
     close?.classList.toggle("hidden");
     navText?.classList.toggle("hidden");
