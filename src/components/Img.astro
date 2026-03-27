@@ -1,0 +1,23 @@
+---
+const { image } = Astro.props;
+---
+
+<div id="card" class="w-full h-auto">
+  <div class="sm:grid sm:grid-cols-3 sm:grid-rows-2 sm:gap-2">
+    <img
+      src={image[0]}
+      alt="project image"
+      class="row-span-2 col-span-2 object-cover h-full rounded-lg"
+    />
+    <img
+      src={image[1]}
+      alt="project image"
+      class="max-sm:hidden object-cover h-full rounded-lg"
+    />
+    <img
+      src={image[2]}
+      alt="project image"
+      class="max-sm:hidden object-cover h-full rounded-lg"
+    />
+  </div>
+</div>

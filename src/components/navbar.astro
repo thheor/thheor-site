@@ -1,102 +1,62 @@
 ---
-const url = new URL(Astro.request.url).pathname;
-const path = url;
+const currentPath = new URL(Astro.request.url).pathname;
+let isDark = true;
 ---
 
-<div
-  class="w-full sticky top-0 backdrop-blur-sm transparent antialiased z-50 border-none"
->
-  <div
-    class="flex justify-between overlay-x-hidden mx-auto h-15 items-center w-[82%] md:w-[75%]"
-  >
-    <p>
-      <a
-        class="font-jetbrains-mono text-ctp-blue tracking-wide text-lg animate-pulse hover:animate-none"
-        href="/"
-        title="Welcome page">~</a
-      >
-      <span class="font-jetbrains-mono text-ctp-text tracking-wide">
-        {path}</span
-      >
-    </p>
-    <button
-      id="toggle-btn"
-      class="group flex justify-center items-center md:hidden scale-120 transition duration-300 ease-in-out hover:scale-130 cursor-pointer z-100"
+<div class="flex justify-center">
+  <nav class="fixed w-screen backdrop-blur-sm transparent">
+    <ul
+      class="flex justify-center items-center gap-5 h-15 font-medium font-roboto-flex tracking-wide text-base text-ctp-text"
     >
-      <span id="bars" class="">
-        <i class="fa-solid fa-bars"></i>
-      </span>
-    </button>
-    <nav
-      id="navbar"
-      class="max-md:hidden max-md:fixed max-md:right-0 max-md:top-0 transition-transform duration-300 max-md:w-60 max-md:min-h-screen max-md:bg-ctp-crust z-100"
-    >
-      <ul
-        id="nav-item"
-        class="flex max-md:w-[80%] max-md:flex-col max-md:mt-5 max-md:ml-5 md:justify-center md:items-center gap-4 md:gap-10 rounded-lg
-    font-jetbrains-mono text-ctp-text tracking-wide"
-      >
-        <div class="flex justify-between">
-          <p
-            id="nav-text"
-            class="text-ctp-blue text-xl font-jetbrains-mono hidden z-100"
-          >
-            Navigation
-          </p>
-          <button
-            id="x-mark"
-            class="flex justify-center items-center hidden scale-120 transition duration-300 ease-in-out hover:scale-130 cursor-pointer z-100"
-          >
-            <span>
-              <i class="fa-solid fa-xmark"></i>
-            </span>
-          </button>
-        </div>
-        <li>
-          <a href="/about" class="hover:text-ctp-blue transition duration-150"
-            >About</a
-          >
-        </li>
-        <li>
-          <a href="/posts" class="hover:text-ctp-blue transition duration-150"
-            >Posts</a
-          >
-        </li>
-        <li>
-          <a
-            href="/projects"
-            class="hover:text-ctp-blue transition duration-150">Projects</a
-          >
-        </li>
-        <li>
-          <a href="/contact" class="hover:text-ctp-blue transition duration-150"
-            >Contact</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
+      <li>
+        <a href="/" class={currentPath === "/" ? "opacity-100" : "opacity-70"}>
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/project"
+          class={currentPath === "/project" ? "opacity-100" : "opacity-70"}
+        >
+          What I've done
+        </a>
+      </li>
+      <li>
+        <button onclick="" id="modeToggle">
+          {
+            isDark ? (
+              <i class="fa-regular fa-moon text-xl" />
+            ) : (
+              <i class="fa-regular fa-star text-xl" />
+            )
+          }
+        </button>
+      </li>
+      <li>
+        <a
+          href="/certifications"
+          class={currentPath === "/certifications"
+            ? "opacity-100"
+            : "opacity-70"}
+        >
+          Certifications
+        </a>
+      </li>
+      <li>
+        <a
+          href="/blogs"
+          class={currentPath === "/blogs" ? "opacity-100" : "opacity-70"}
+        >
+          Blogs
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
 <script>
-  const navbar = document.getElementById("navbar");
-  const button = document.getElementById("toggle-btn");
-  const bars = document.getElementById("bars");
-  const close = document.getElementById("x-mark");
-  const navText = document.getElementById("nav-text");
-  // const overlay = document.getElementById("overlay");
+  let isDark = false;
+  const mode = document.getElementById("modeToggle");
+  const icon = document.createElement("i");
 
-  const sidebarToggle = () => {
-    navbar?.classList.toggle("max-md:hidden");
-    bars?.classList.toggle("hidden");
-    close?.classList.toggle("hidden");
-    navText?.classList.toggle("hidden");
-    // overlay?.classList.toggle("invisible");
-    // overlay?.classList.toggle("opacity-0");
-
-    document.body.classList.toggle("overflow-hidden");
-  };
-
-  button?.addEventListener("click", sidebarToggle);
-  close?.addEventListener("click", sidebarToggle);
-  // overlay?.addEventListener("click", sidebarToggle);
+  mode?.appendChild(icon);
 </script>

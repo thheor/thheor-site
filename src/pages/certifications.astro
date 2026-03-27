@@ -1,0 +1,18 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+const image = ["intro.png", "ml.png", "Pandas.png"];
+---
+
+<MainLayout>
+  <div class="flex justify-center w-screen">
+    <div
+      class="w-[80%] sm:w-[50%] sm:grid sm:grid-cols-2 sm:gap-10 flex flex-col gap-5 mt-40"
+    >
+      {
+        image.map((el) => (
+          <img src={el} alt="project image" class="object-cover rounded-lg" />
+        ))
+      }
+    </div>
+  </div>
+</MainLayout>

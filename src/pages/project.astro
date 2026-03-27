@@ -1,0 +1,45 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ProjectElement from "../components/ProjectElement.astro";
+
+const projectList = [
+  {
+    title: "Machine Learning",
+    date: "Nov 2022 - Jan 2023",
+    image: ["intro.png", "ml.png", "Pandas.png"],
+    content: "Machine Learning Project",
+  },
+  {
+    title: "Bot Spada",
+    date: "Nov 2022 - Jan 2023",
+    image: ["intro.png", "ml.png", "Pandas.png"],
+    content: "Machine Learning Project",
+  },
+];
+
+// projectList[i].image
+---
+
+<MainLayout>
+  <div class="w-screen flex justify-center">
+    <div class="w-[80%] sm:w-[60%]">
+      <div class="flex gap-5 mt-20 justify-center">
+        <h1
+          class="text-lg sm:text-xl font-roboto-flex font-semibold underline tracking-wide italic"
+        >
+          Personal
+        </h1>
+      </div>
+      {
+        projectList.map((project) => (
+          <ProjectElement
+            title={project.title}
+            date={project.date}
+            image={project.image}
+            content={project.content}
+          />
+        ))
+      }
+    </div>
+  </div>
+</MainLayout>

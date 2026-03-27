@@ -1,5 +1,5 @@
 ---
-import MainLayout from "./MainLayout.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -20,7 +20,9 @@ import MainLayout from "./MainLayout.astro";
     <title>Astro Basics</title>
   </head>
   <body class="bg-ctp-base text-ctp-text">
-    <MainLayout />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 
