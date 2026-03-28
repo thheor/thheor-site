@@ -4,9 +4,13 @@ let isDark = true;
 ---
 
 <div class="flex justify-center">
-  <nav class="fixed w-screen backdrop-blur-sm transparent">
+  <nav
+    class="fixed scale-100 animate-scale-up top-5 px-10 sm:px-8 py-1 sm:py-2 border border-ctp-text/20 rounded-xl backdrop-blur-lg shadow-md transparent"
+  >
+    <button id="button" class="sm:hidden">Click to See My Profile🤗</button>
     <ul
-      class="flex justify-center items-center gap-5 h-15 font-medium font-roboto-flex tracking-wide text-base text-ctp-text"
+      id="nav-item"
+      class="max-sm:hidden flex max-sm:flex-col justify-center max-sm:justify-between items-center sm:gap-5 font-medium font-roboto-flex tracking-wide max-md:text-base 2xl:text-xl text-ctp-text"
     >
       <li>
         <a href="/" class={currentPath === "/" ? "opacity-100" : "opacity-70"}>
@@ -21,7 +25,7 @@ let isDark = true;
           What I've done
         </a>
       </li>
-      <li>
+      <li class="max-sm:hidden">
         <button onclick="" id="modeToggle">
           {
             isDark ? (
@@ -53,10 +57,29 @@ let isDark = true;
     </ul>
   </nav>
 </div>
-<script>
-  let isDark = false;
-  const mode = document.getElementById("modeToggle");
-  const icon = document.createElement("i");
+<style>
+  @keyframes scaleup {
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
 
-  mode?.appendChild(icon);
+  .animate-scale-up{
+    animation: scaleup 1s ease-out forwards;
+  }
+</style>
+<script>
+const button = document.getElementById('button');
+const navbar = document.getElementById('nav-item')
+
+const openNavbar = () => {
+  navbar?.classList.toggle('max-sm:hidden')
+  button?.classList.toggle('hidden')
+}
+
+button?.addEventListener("click", openNavbar)
 </script>
