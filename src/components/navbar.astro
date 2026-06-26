@@ -1,47 +1,52 @@
 ---
+import { Moon, SunDim } from "@lucide/astro";
+
 const currentPath = new URL(Astro.request.url).pathname;
 let isDark = true;
 ---
 
 <div class="flex justify-center">
   <nav
-    class="fixed scale-100 animate-scale-up top-5 px-10 sm:px-8 py-1 sm:py-2 border border-ctp-text/20 rounded-xl backdrop-blur-lg shadow-md transparent"
+    id="navbar"
+    class="fixed flex items-center top-5 px-10 sm:px-8 h-8 sm:h-10 transition-all duration-300 ease-in-out border border-ctp-text/20 rounded-xl backdrop-blur-lg shadow-md transparent"
   >
-    <button id="button" class="sm:hidden">Click to See My Profile🤗</button>
+    <button id="open-button" class="sm:hidden">Click to See My Profile🤗</button
+    >
     <ul
       id="nav-item"
-      class="max-sm:hidden flex max-sm:flex-col justify-center max-sm:justify-between items-center sm:gap-5 font-medium font-roboto-flex tracking-wide max-md:text-base 2xl:text-xl text-ctp-text"
+      class="max-sm:hidden flex max-sm:flex-col justify-center px-10 max-sm:justify-between items-center sm:gap-5 font-medium font-roboto-flex tracking-wide max-md:text-base 2xl:text-xl"
     >
       <li>
-        <a href="/" class={currentPath === "/" ? "opacity-100" : "opacity-70"}>
+        <a
+          href="/"
+          class={currentPath === "/"
+            ? "text-ctp-text"
+            : "text-ctp-text/70 hover:text-ctp-text transition duration-200 ease-in-out"}
+        >
           Home
         </a>
       </li>
       <li>
         <a
-          href="/project"
-          class={currentPath === "/project" ? "opacity-100" : "opacity-70"}
+          href="/projects"
+          class={currentPath === "/projects"
+            ? "text-ctp-text"
+            : "text-ctp-text/70 hover:text-ctp-text transition duration-200 ease-in-out"}
         >
           What I've done
         </a>
       </li>
       <li class="max-sm:hidden">
         <button onclick="" id="modeToggle">
-          {
-            isDark ? (
-              <i class="fa-regular fa-moon text-xl" />
-            ) : (
-              <i class="fa-regular fa-star text-xl" />
-            )
-          }
+          {isDark ? <SunDim /> : <Moon />}
         </button>
       </li>
       <li>
         <a
           href="/certifications"
           class={currentPath === "/certifications"
-            ? "opacity-100"
-            : "opacity-70"}
+            ? "text-ctp-text"
+            : "text-ctp-text/70 hover:text-ctp-text transition duration-200 ease-in-out"}
         >
           Certifications
         </a>
@@ -49,37 +54,59 @@ let isDark = true;
       <li>
         <a
           href="/blogs"
-          class={currentPath === "/blogs" ? "opacity-100" : "opacity-70"}
+          class={currentPath === "/blogs"
+            ? "text-ctp-text"
+            : "text-ctp-text/70 hover:text-ctp-text transition duration-200 ease-in-out"}
         >
           Blogs
         </a>
       </li>
     </ul>
   </nav>
+  <button
+    id="close-button"
+    class="hidden font-roboto-flex sm:hidden absolute top-34 px-5 border border-ctp-text/20 rounded-md shadow-md"
+    >Close</button
+  >
 </div>
 <style>
   @keyframes scaleup {
-  0%{
-    transform: scale(0);
-    opacity: 0;
-  }
-  100%{
-    transform: scale(1);
-    opacity: 1;
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 
-  .animate-scale-up{
-    animation: scaleup 1s ease-out forwards;
+  .animate-scale-up {
+    animation: scaleup 0.8s ease-in-out forwards;
   }
 </style>
 <script>
-const button = document.getElementById('button');
-const navbar = document.getElementById('nav-item')
+  const openBtn = document.getElementById("open-button");
+  const closeBtn = document.getElementById("close-button");
+  const navbarItem = document.getElementById("nav-item");
+  const navbar = document.getElementById("navbar") as HTMLElement;
 
-const openNavbar = () => {
-  navbar?.classList.toggle('max-sm:hidden')
-  button?.classList.toggle('hidden')
-}
+  const openNavbar = () => {
+    navbar.classList.remove("items-center", "h-10");
+    navbarItem?.classList.toggle("max-sm:hidden");
+    openBtn?.classList.toggle("hidden");
+    closeBtn?.classList.toggle("hidden");
+    navbar.classList.add("items-start", "h-25");
+  };
 
-button?.addEventListener("click", openNavbar)
+  const closeNavbar = () => {
+    navbar.classList.remove("items-start", "h-25");
+    navbarItem?.classList.toggle("max-sm:hidden");
+    openBtn?.classList.toggle("hidden");
+    closeBtn?.classList.toggle("hidden");
+    navbar.classList.add("items-center", "h-10");
+  };
+
+  openBtn?.addEventListener("click", openNavbar);
+  closeBtn?.addEventListener("click", closeNavbar);
 </script>
