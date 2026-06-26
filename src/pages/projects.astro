@@ -20,14 +20,14 @@ const projectList = [
 // projectList[i].image
 ---
 
-<MainLayout>
-  <div class="w-screen flex justify-center">
-    <div class="w-[80%] sm:w-[60%]">
+<MainLayout title="Theo's Projects">
+  <section id="projects" class="sm:px-24 md:px-32 flex w-full justify-center">
+    <div class="flex flex-col justify-center">
       <div class="flex gap-5 mt-20 justify-center">
         <h1
           class="text-lg sm:text-xl xl:text-2xl 2xl:text-3xl font-roboto-flex font-semibold underline tracking-wide italic"
         >
-          Personal
+          Personal Projects
         </h1>
       </div>
       {
@@ -41,5 +41,5 @@ const projectList = [
         ))
       }
     </div>
-  </div>
+  </section>
 </MainLayout>

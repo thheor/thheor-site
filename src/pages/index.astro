@@ -1,8 +1,112 @@
 ---
-import Home from "../components/Home.astro";
+// import Home from "../components/Home.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
-  <Home />
+  <section
+    id="hero"
+    class="flex flex-col justify-center sm:items-center w-full h-screen pb-32"
+  >
+    <h3
+      class="text-transparent flex  text-xl 2xl:text-2xl justify-start md:justify-center items-center"
+    >
+      <span
+        id="typewriter"
+        class="max-sm:text-start text-base md:text-xl 2xl:text-2xl text-ctp-text"></span>
+      <span id="cursor" class="bg-ctp-text"></span>
+      <span class="opacity-0 text-base md:text-xl 2xl:text-2xl text-ctp-text"
+        >h</span
+      >
+    </h3>
+    <h1
+      class="text-4xl md:text-6xl 2xl:text-8xl font-inter font-bold tracking-wide"
+    >
+      Lukman Prasetyo
+    </h1>
+    <p
+      class="mt-2 text-base leading-7 sm:leading-8 sm:w-[90%] sm:text-center sm:text-xl 2xl:text-2xl font-roboto-flex tracking-wide"
+    >
+      I'm a computer science student, Web Developer, and Artificial Intelligence
+      enthusiast. My passion for web development lies with dreaming up an ideas
+      and making them become smart with AI integration.
+    </p>
+    <a
+      href=""
+      class="font-roboto-flex font-semibold text-center text-base md:text-base 2xl:text-2xl py-1 sm:py-2 px-6 max-sm:w-50 bg-ctp-text hover:scale-103 transition ease-in-out duration-200 mt-4 text-ctp-base rounded-full"
+      >Download Resume</a
+    >
+  </section>
 </MainLayout>
+<script>
+  const greet = [
+    "Hello! my name is",
+    "Halo! nama saya",
+    "你好，我叫",
+    "こんにちは、私の名前は",
+  ];
+
+  let i = 0;
+  let j = 0;
+  let currentWord = "";
+  let isDeleting = false;
+
+  const type = () => {
+    currentWord = greet[i];
+    const typewriter = document.getElementById(
+      "typewriter",
+    ) as unknown as HTMLSpanElement;
+    if (isDeleting) {
+      typewriter.textContent = currentWord.substring(0, j - 1);
+      j--;
+      if (j === 0) {
+        isDeleting = false;
+        i++;
+        if (i === greet.length) {
+          i = 0;
+        }
+      }
+    } else {
+      typewriter.textContent = currentWord.substring(0, j + 1);
+      j++;
+      if (j === currentWord.length) {
+        isDeleting = true;
+      }
+    }
+    let timeout = 100;
+    if (isDeleting && j === currentWord.length) {
+      timeout = 1000;
+    } else if (isDeleting) {
+      timeout = 60;
+    }
+    setTimeout(type, timeout);
+  };
+
+  type();
+</script>
+<style>
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  #cursor {
+    display: inline-block;
+    width: 1px;
+    height: 1.5rem;
+    margin-left: 4px;
+    opacity: 50;
+  }
+  #cursor {
+    animation: blink 0.8s linear infinite alternate;
+  }
+</style>
