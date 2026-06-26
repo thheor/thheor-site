@@ -1,7 +1,9 @@
 ---
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
+import Navbar from "@/components/navbar.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/global.css";
+
+const { title = "Theo's Portfolio" } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,15 +21,17 @@ import "../styles/global.css";
       referrerpolicy="no-referrer"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>Theo's Portfolio</title>
+    <title>{title}</title>
   </head>
-  <body class="latte bg-ctp-base text-ctp-text overflow-x-hidden">
+  <body class="latte bg-ctp-base text-ctp-text font-inter overflow-x-hidden">
+    <header>
+      <Navbar />
+    </header>
     <div
       class="fixed inset-0 -z-10 h-1vh w-screen bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
     >
     </div>
-    <Navbar />
-    <main>
+    <main class="px-8 sm:px-16 md:px-24">
       <slot />
     </main>
     <Footer />
