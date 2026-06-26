@@ -8,9 +8,11 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      noExternal: ["@lucide/astro"],
+    },
   },
   output: "server",
 
   adapter: netlify(),
 });
-
