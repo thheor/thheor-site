@@ -1,31 +1,49 @@
 ---
-import Github from "@/assets/icons/github.svg";
-import Linkedin from "@/assets/icons/linkedin.svg";
-import Instagram from "@/assets/icons/instagram.svg";
+import Icon from "@/components/Icon.astro";
 ---
 
 <footer class="w-screen fixed bottom-0 flex justify-center">
-  <div class="w-[95%] sm:w-[80%] flex justify-start">
-    <div class="flex flex-col justify-center items-center gap-2">
+  <div class="px-4 w-full md:px-8 lg:px-36 flex justify-center sm:justify-start">
+    <div
+      id="footer-links"
+      class="flex sm:flex-col justify-center items-center max-sm:gap-2 max-sm:mb-4 max-sm:border
+      border-ctp-text/60 max-sm:backdrop-blur-lg max-sm:shadow-md max-sm:transparent
+      z-100 max-sm:px-2 max-sm:py-1 max-sm:rounded-xl transition-all duration-300 ease-in-out"
+    >
       <a
         href="https://github.com/thheor"
-        class="transition duration-300 ease-in-out opacity-100 sm:opacity-60 hover:opacity-100"
+        class="transition duration-300 ease-in-out sm:opacity-80 hover:opacity-100"
       >
-        <Github class="w-12 h-12" />
+        <Icon name="github" class="w-8 h-8 sm:w-12 sm:h-12 text-ctp-text" />
       </a>
       <a
         href="https://www.linkedin.com/in/lukman-prasetyo-341407326/"
-        class="transition duration-300 ease-in-out opacity-100 sm:opacity-60 hover:opacity-100"
+        class="transition duration-300 ease-in-out sm:opacity-80 hover:opacity-100"
       >
-        <Linkedin class="w-12 h-12" />
+        <Icon name="linkedin" class="w-8 h-8 sm:w-12 sm:h-12 text-ctp-text" />
       </a>
       <a
         href="https://instagram.com/lukmanp._"
-        class="transition duration-300 ease-in-out opacity-100 sm:opacity-60 hover:opacity-100"
+        class="transition duration-300 ease-in-out sm:opacity-80 hover:opacity-100"
       >
-        <Instagram class="w-12 h-12" />
+        <Icon name="instagram" class="w-8 h-8 sm:w-12 sm:h-12 text-ctp-text" />
       </a>
-      <div class="border-l-1 h-25 border-ctp-text/80"></div>
+      <div class="hidden sm:block border-l h-25 border-ctp-text/80"></div>
     </div>
   </div>
 </footer>
+<script>
+  const footerLinks = document.getElementById("footer-links") as HTMLDivElement
+
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > lastScrollY){
+      footerLinks.classList.add("translate-y-12")
+    }else {
+      footerLinks.classList.remove("translate-y-12")
+    }
+
+    lastScrollY = window.scrollY;
+  })
+</script>
