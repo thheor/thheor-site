@@ -1,12 +1,12 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import ProjectElement from "../components/ProjectElement.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 
 const projectList = [
   {
     title: "Machine Learning",
     date: "Nov 2022 - Jan 2023",
-    image: ["intro.png", "ml.png", "Pandas.png"],
+    image: ["intro.png", "eco-track-mobile.webp"],
     content: "Machine Learning Project",
   },
   {
@@ -17,29 +17,26 @@ const projectList = [
   },
 ];
 
-// projectList[i].image
 ---
 
 <MainLayout title="Theo's Projects">
-  <section id="projects" class="sm:px-24 md:px-32 flex w-full justify-center">
-    <div class="flex flex-col justify-center">
-      <div class="flex gap-5 mt-20 justify-center">
-        <h1
+  <section id="projects" class="sm:px-24 md:px-32 w-full flex flex-col items-center justify-center">
+    <div class="flex gap-5 mt-20 justify-center">
+      <h1
           class="text-lg sm:text-xl xl:text-2xl 2xl:text-3xl font-roboto-flex font-semibold underline tracking-wide italic"
-        >
-          Personal Projects
-        </h1>
-      </div>
-      {
+      >
+        Personal Projects
+      </h1>
+    </div>
+    {
         projectList.map((project) => (
-          <ProjectElement
+          <ProjectCard
             title={project.title}
             date={project.date}
             image={project.image}
             content={project.content}
           />
         ))
-      }
-    </div>
+    }
   </section>
 </MainLayout>

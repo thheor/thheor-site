@@ -1,10 +1,10 @@
 ---
-import Img from "./Img.astro";
+import ProjectImage from "./ProjectImage.astro";
 
 const { title, date, image, content } = Astro.props;
 ---
 
-<div class="w-full h-auto mt-12 sm:mt-15 mb-20 sm:mb-30">
+<div class="w-full h-full mt-12 sm:mt-15 sm:mb-4">
   <p
     class="font-roboto-flex font-semibold text-xs sm:text-sm 2xl:text-lg tracking-wider"
   >
@@ -25,7 +25,7 @@ const { title, date, image, content } = Astro.props;
       >
     </div>
   </div>
-  <Img image={image} />
+  <ProjectImage image={image} />
   <p class="border-t-1 border-dashed border-ctp-text/60 mt-5 mb-2"></p>
   <p
     class="text-ctp-text font-roboto-flex italic text-lg xl:text-xl 2xl:text-2xl"
