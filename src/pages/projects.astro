@@ -1,42 +1,65 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import type { ImageMetadata } from "astro";
 
-const projectList = [
+import MainLayout from "@/layouts/MainLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import EcoTrackDesktop from "@/assets/project-img/eco-track.webp";
+import EcoTrackMobile from "@/assets/project-img/eco-track-calculator-mobile.webp";
+import MasteryDesktop from "@/assets/project-img/mastery.webp";
+import MasteryMobile from "@/assets/project-img/mastery-mobile.webp";
+
+interface Project {
+  title: string;
+  date: string;
+  image: ImageMetadata[];
+  content: string;
+  path: string;
+}
+
+const projectList: Project[] = [
   {
-    title: "Machine Learning",
+    title: "Eco Track",
     date: "Nov 2022 - Jan 2023",
-    image: ["intro.png", "eco-track-mobile.webp"],
-    content: "Machine Learning Project",
+    image: [EcoTrackDesktop, EcoTrackMobile],
+    content: "Fullstack Project",
+    path: "/projects/eco-track",
   },
   {
-    title: "Bot Spada",
+    title: "Mastery",
     date: "Nov 2022 - Jan 2023",
-    image: ["intro.png", "ml.png", "Pandas.png"],
-    content: "Machine Learning Project",
+    image: [MasteryDesktop, MasteryMobile],
+    content: "Fullstack Project",
+    path: "/projects/mastery",
   },
 ];
-
 ---
 
 <MainLayout title="Theo's Projects">
-  <section id="projects" class="sm:px-24 md:px-32 w-full flex flex-col items-center justify-center">
+  <section
+    id="projects"
+    class="lg:px-32 w-full flex flex-col items-center justify-center"
+  >
     <div class="flex gap-5 mt-20 justify-center">
       <h1
-          class="text-lg sm:text-xl xl:text-2xl 2xl:text-3xl font-roboto-flex font-semibold underline tracking-wide italic"
+        class="text-lg sm:text-xl xl:text-2xl 2xl:text-3xl font-roboto-flex font-semibold underline tracking-wide italic"
       >
         Personal Projects
       </h1>
     </div>
+    <ul class="w-full">
     {
-        projectList.map((project) => (
-          <ProjectCard
-            title={project.title}
-            date={project.date}
-            image={project.image}
-            content={project.content}
-          />
-        ))
+      projectList.map((project) => (
+      <li class="w-full">
+        <ProjectCard
+          title={project.title}
+          date={project.date}
+          image={project.image}
+          content={project.content}
+          path={project.path}
+        />
+      </li>
+      ))
     }
+    </ul>
   </section>
 </MainLayout>

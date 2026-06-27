@@ -1,7 +1,7 @@
 ---
 import ProjectImage from "./ProjectImage.astro";
 
-const { title, date, image, content } = Astro.props;
+const { title, date, image, content, path } = Astro.props;
 ---
 
 <div class="w-full h-full mt-12 sm:mt-15 sm:mb-4">
@@ -16,12 +16,13 @@ const { title, date, image, content } = Astro.props;
     >
       {title}
     </h1>
-    <div class="flex justify-end">
-      <button
-        class="cursor-pointer font-roboto-flex text-sm md:text-lg font-semibold tracking-wide
-        max-sm:mt-1 py-2 sm:py-0 px-6 max-sm:w-full bg-ctp-text sm:bg-ctp-text/95
+    <div class="flex justify-end items-center">
+      <a
+        href={path}
+        class="font-roboto-flex text-base md:text-lg font-semibold text-center tracking-wide
+        max-sm:w-full bg-ctp-text sm:bg-ctp-text/95 sm:px-4 py-1 sm:py-2 max-sm:mt-1
         hover:bg-ctp-text transition ease-in-out duration-100 text-ctp-base rounded-full"
-        >See Detail</button
+        >See Detail</a
       >
     </div>
   </div>

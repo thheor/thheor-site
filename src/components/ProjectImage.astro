@@ -1,6 +1,4 @@
 ---
-import Eco from "@/assets/project-img/eco-track.webp";
-import EcoMobile from "@/assets/project-img/eco-track-calculator-mobile.webp";
 const { image } = Astro.props;
 ---
 
@@ -10,20 +8,20 @@ const { image } = Astro.props;
       class="skeleton rounded-lg animate-pulse bg-gray-300 opacity-70 overflow-hidden relative"
     >
       <img
-        src={Eco.src}
+        src={image[0].src}
         alt="project image"
         loading="lazy"
         class="project-image object-cover w-full h-full opacity-0 transition-all duration-300"
       />
     </div>
     <div
-      class="skeleton max-sm:hidden rounded-lg animate-pulse bg-gray-300 opacity-70"
+      class="skeleton max-sm:hidden rounded-lg animate-pulse bg-gray-300 opacity-70 overflow-hidden relative"
     >
       <img
-        src={EcoMobile.src}
+        src={image[1].src}
         alt="project image"
         loading="lazy"
-        class="project-image max-sm:hidden object-cover h-full opacity-0 transition-all duration-300"
+        class="project-image max-sm:hidden object-cover w-full h-full opacity-0 transition-all duration-300"
       />
     </div>
   </div>
