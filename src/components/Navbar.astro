@@ -2,61 +2,63 @@
 import { Moon, SunDim } from "@lucide/astro";
 
 const currentPath = new URL(Astro.request.url).pathname;
-let isDark = true;
+let isDark = false;
 ---
 
-<div class="flex justify-center">
+<div class="relative flex justify-center">
   <nav
     id="navbar"
-    class="fixed flex items-center top-5 px-10 sm:px-8 h-8 sm:h-10 transition-all duration-300 ease-in-out border border-ctp-text/20 rounded-xl backdrop-blur-lg shadow-md transparent z-100"
+    class="fixed flex justify-center items-center top-5 w-64 sm:w-128 h-8 sm:h-10 transition-all duration-300 ease-in-out border border-ctp-text/20 rounded-xl backdrop-blur-lg shadow-md transparent z-100"
   >
     <button id="open-button" class="sm:hidden">Click to See My Profile🤗</button
     >
     <ul
       id="nav-item"
-      class="max-sm:hidden flex max-sm:flex-col justify-center px-10 max-sm:justify-between items-center sm:gap-5 font-medium font-roboto-flex tracking-wide max-md:text-base 2xl:text-xl"
+      class="max-sm:hidden w-full flex max-sm:flex-col my-auto justify-center max-sm:justify-between items-center sm:gap-5 font-medium font-roboto-flex tracking-wide max-md:text-base"
     >
-      <li>
+      <li class="max-sm:w-full text-center">
         <a
           href="/"
-          class={currentPath === "/"
-            ? "text-ctp-text"
-            : "text-ctp-text/70 hover:text-ctp-text transition duration-200 ease-in-out"}
+          class={`block hover:text-ctp-text transition duration-200 ease-in-out ${
+            currentPath === "/" ? "text-ctp-text" : "text-ctp-text/70 "
+          }`}
         >
           Home
         </a>
       </li>
-      <li>
+      <li class="max-sm:w-full text-center">
         <a
           href="/projects"
-          class={currentPath === "/projects"
-            ? "text-ctp-text"
-            : "text-ctp-text/70 hover:text-ctp-text transition duration-200 ease-in-out"}
+          class={`block hover:text-ctp-text transition duration-200 ease-in-out ${
+            currentPath === "/projects" ? "text-ctp-text" : "text-ctp-text/70 "
+          }`}
         >
           What I've done
         </a>
       </li>
-      <li class="max-sm:hidden">
+      <li class="max-sm:hidden flex items-center">
         <button onclick="" id="modeToggle">
           {isDark ? <SunDim /> : <Moon />}
         </button>
       </li>
-      <li>
+      <li class="max-sm:w-full text-center">
         <a
           href="/certifications"
-          class={currentPath === "/certifications"
-            ? "text-ctp-text"
-            : "text-ctp-text/70 hover:text-ctp-text transition duration-200 ease-in-out"}
+          class={`block hover:text-ctp-text transition duration-200 ease-in-out ${
+            currentPath === "/certifications"
+              ? "text-ctp-text"
+              : "text-ctp-text/70 "
+          }`}
         >
           Certifications
         </a>
       </li>
-      <li>
+      <li class="max-sm:w-full text-center">
         <a
           href="/blogs"
-          class={currentPath === "/blogs"
-            ? "text-ctp-text"
-            : "text-ctp-text/70 hover:text-ctp-text transition duration-200 ease-in-out"}
+          class={`block hover:text-ctp-text transition duration-200 ease-in-out ${
+            currentPath === "/blogs" ? "text-ctp-text" : "text-ctp-text/70 "
+          }`}
         >
           Blogs
         </a>
@@ -65,7 +67,7 @@ let isDark = true;
   </nav>
   <button
     id="close-button"
-    class="hidden font-roboto-flex sm:hidden absolute top-34 px-5 border border-ctp-text/20 rounded-md shadow-md"
+    class="hidden font-roboto-flex sm:hidden fixed top-34 px-5 border border-ctp-text/20 rounded-md shadow-md z-100"
     >Close</button
   >
 </div>
