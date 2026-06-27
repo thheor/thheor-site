@@ -1,0 +1,39 @@
+---
+// src/components/Icon.astro
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+
+// Dynamically load all SVG files in the /src/assets/icons folder as raw strings
+const svgFiles = import.meta.glob<string>("/src/assets/icons/**/*.svg", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+
+// Match the requested name with the file path
+const key = `/src/assets/icons/${name}.svg`;
+const rawSvg = svgFiles[key];
+
+if (!rawSvg) {
+  throw new Error(
+    `Icon "${name}" was not found in /src/assets/icons/. Available icons are: ${Object.keys(svgFiles).map((k) => k.replace("/src/assets/icons/", "").replace(".svg", ""))}`,
+  );
+}
+---
+
+{/* Wrap in a span to forward Tailwind sizing and coloring classes */}
+<span class={`inline-flex items-center justify-center shrink-0 ${className}`} set:html={rawSvg} />
+
+<style is:global>
+  /* Ensure the child SVG adapts to the wrapper span's size and color */
+  span > svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+</style>
