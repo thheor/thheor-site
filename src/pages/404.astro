@@ -1,16 +1,19 @@
 ---
-import MyLayout from "../layouts/MyLayout.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
 ---
 
-<MyLayout>
-  <div class="w-[78%] h-screen mx-auto">
-    <div class="h-screen flex flex-col justify-center items-center">
-      <p class="text-4xl md:text-8xl font-jetbrains-mono">404</p>
-      <p
-        class="text-base md:text-3xl font-jetbrains-mono w-100 text-center mb-20"
-      >
-        Sorry, page not found
-      </p>
-    </div>
+<MainLayout>
+  <div
+    class="h-screen flex flex-col justify-center items-center gap-4 text-ctp-text pb-24"
+  >
+    <h1 class="text-4xl sm:text-8xl font-black">404</h1>
+    <p class="text-sm sm:text-xl">
+      Sorry the page that you are looking for is not found.
+    </p>
+    <a
+      href="/"
+      class="px-4 py-1 text-ctp-base bg-ctp-text/90 rounded-xl cursor-pointer transition duration-200 ease-in-out hover:bg-ctp-text"
+      >Back to Homepage</a
+    >
   </div>
-</MyLayout>
+</MainLayout>

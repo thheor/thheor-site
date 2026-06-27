@@ -1,18 +1,26 @@
 ---
+import type { ImageMetadata } from "astro";
+
 import MainLayout from "../layouts/MainLayout.astro";
-const image = ["intro.png", "ml.png", "Pandas.png"];
+import Pandas from "@/assets/certificates/pandas.png";
+import Intro from "@/assets/certificates/intro.png";
+import ML from "@/assets/certificates/ml.png";
+
+const image: ImageMetadata[] = [Pandas, Intro, ML];
 ---
 
 <MainLayout>
-  <div class="flex justify-center w-screen">
-    <div
-      class="w-[80%] sm:w-[50%] sm:grid sm:grid-cols-2 sm:gap-10 flex flex-col gap-5 mt-40"
-    >
+  <section class="flex justify-center w-full h-full sm:px-24 md:px-32">
+    <div class="sm:grid sm:grid-cols-2 sm:gap-10 flex flex-col gap-5 mt-40">
       {
-        image.map((el) => (
-          <img src={el} alt="project image" class="object-cover rounded-lg" />
+        image.map((el: ImageMetadata) => (
+          <img
+            src={el.src}
+            alt="project image"
+            class="object-cover h-60 rounded-lg"
+          />
         ))
       }
     </div>
-  </div>
+  </section>
 </MainLayout>

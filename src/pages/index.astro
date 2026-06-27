@@ -9,11 +9,12 @@ import MainLayout from "../layouts/MainLayout.astro";
     class="flex flex-col justify-center sm:items-center w-full h-screen pb-32"
   >
     <h3
-      class="text-transparent flex  text-xl 2xl:text-2xl justify-start md:justify-center items-center"
+      class="text-transparent flex text-xl 2xl:text-2xl justify-start md:justify-center items-center"
     >
       <span
         id="typewriter"
-        class="max-sm:text-start text-base md:text-xl 2xl:text-2xl text-ctp-text"></span>
+        class="max-sm:text-start text-base md:text-xl 2xl:text-2xl text-ctp-text"
+      ></span>
       <span id="cursor" class="bg-ctp-text"></span>
       <span class="opacity-0 text-base md:text-xl 2xl:text-2xl text-ctp-text"
         >h</span
@@ -25,16 +26,16 @@ import MainLayout from "../layouts/MainLayout.astro";
       Lukman Prasetyo
     </h1>
     <p
-      class="mt-2 text-base leading-7 sm:leading-8 sm:w-[90%] sm:text-center sm:text-xl 2xl:text-2xl font-roboto-flex tracking-wide"
+      class="mt-2 text-base leading-7 sm:leading-8 sm:mx-50 sm:text-center sm:text-xl 2xl:text-2xl font-roboto-flex tracking-wide"
     >
       I'm a computer science student, Web Developer, and Artificial Intelligence
       enthusiast. My passion for web development lies with dreaming up an ideas
       and making them become smart with AI integration.
     </p>
     <a
-      href=""
-      class="font-roboto-flex font-semibold text-center text-base md:text-base 2xl:text-2xl py-1 sm:py-2 px-6 max-sm:w-50 bg-ctp-text hover:scale-103 transition ease-in-out duration-200 mt-4 text-ctp-base rounded-full"
-      >Download Resume</a
+      href="/resume.pdf"
+      class="font-roboto-flex font-semibold text-center text-base md:text-base 2xl:text-2xl py-1 sm:py-2 px-6 max-sm:w-50 bg-ctp-text/90 hover:bg-ctp-text transition ease-in-out duration-200 mt-4 text-ctp-base rounded-full"
+      download="Lukman Prasetyo's resume">Download Resume</a
     >
   </section>
 </MainLayout>

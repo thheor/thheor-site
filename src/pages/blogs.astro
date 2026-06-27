@@ -1,11 +1,16 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import Icon from "@/components/Icon.astro"
 ---
 
 <MainLayout>
-  <div class="bg-ctp-base text-ctp-text">
-    <div class="w-[60%] h-screen flex justify-center items-center mx-auto">
-      <h1>POSTS</h1>
-    </div>
-  </div>
+  <section class="w-full h-screen flex flex-col items-center justify-center pb-24">
+<Icon name="construction" class="w-64 h-64" />
+    <h1 class="text-xl sm:text-2xl font-medium">This page is under construction</h1>
+    <a
+      href="/"
+      class="px-4 py-1 mt-4 text-ctp-base bg-ctp-text/90 rounded-xl cursor-pointer transition duration-200 ease-in-out hover:bg-ctp-text"
+      >Back to Homepage</a
+    >
+  </section>
 </MainLayout>
